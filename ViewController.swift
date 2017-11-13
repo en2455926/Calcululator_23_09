@@ -38,6 +38,9 @@ class ViewController: UIViewController {
         }
     }
     
+    /* Computed value feature in Swift Always tracking value: The value for this property is set automatically whenever the button state changes. For states that do not have a custom title string associated with them, this method returns the title that is currently displayed, which is typically the one associated with the normal state. The value may be nil.
+     */
+    
     var displayValue: Double  {
         get {
             return Double(display.text!)!
@@ -47,19 +50,19 @@ class ViewController: UIViewController {
         }
     }
     
+    private var brain = CalculatorBrain()
     
     @IBAction func performOperation(_ sender: UIButton) {
-        userIsInTheMiddleOfTyping = false
-        if let mathematicalSymbol = sender.currentTitle {
-            switch mathematicalSymbol {
-            case "pii":
-                displayValue = Double.pi
-            case "sqrt":
-                displayValue = sqrt(displayValue)
-            default:
-                break
-            }
-            
+        if userIsInTheMiddleOfTyping {
+            brain.setOperand(displayValue)
+            userIsInTheMiddleOfTyping = false
         }
+        if let mathematicalSymbol = sender.currentTitle {
+            brain.performOperation(mathematicalSymbol)
+        }
+        if let result = brain.result {
+            displayValue = result
+
+}
 }
 }
