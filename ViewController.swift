@@ -7,14 +7,25 @@
 //
 
 /* Most important Mac keyboard settings
- 
- right alt + 2 = @
- right alt + 8 or 9 = []
- shift + right alt + 8 or 9 = {}
- left cmd + C = copy text
- left cmd + V = paste text
- left cmd + X = delete text
- alt + shift + 7 = \
+ 
+ Pipe (|) = Alt + 7
+ Backslash (\) = Shift + Alt + 7
+ Open square bracket ([) = Alt + 8
+ Closed square bracket (]) = Alt + 9
+ Open curly bracket ({) = Shift + Alt + 8
+ Closed curly bracket (}) = Shift + Alt + 9
+ Dollar sign ($) = Alt + 4
+ Tilde (~) = Alt + ¨
+ 
+ Page up = Fn + Up
+ Page down = Fn + Down
+ 
+ Print screen = Cmd + Shift + 3
+ Partial print screen = Cmd + Shift + 4 (You get a cursor to select what to capture)
+ Print window = Cmd + Shift + 4 and then press Spacebar
+ 
+ Delete = Fn + Backspace
+ Delete file from Finder = Cmd + Backspace
  
  */
 
@@ -62,7 +73,7 @@ class ViewController: UIViewController {
         }
         if let result = brain.result {
             displayValue = result
-
-}
-}
+            
+        }
+    }
 }
