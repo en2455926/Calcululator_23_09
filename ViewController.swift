@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         let digit = sender.currentTitle!
         if userIsInTheMiddleOfTyping {
             let textCurrentlyInDisplay = display.text!
-        display.text = textCurrentlyInDisplay + digit
+            display.text = textCurrentlyInDisplay + digit
         } else {
             display.text = digit
             userIsInTheMiddleOfTyping = true
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
             return Double(display.text!)!
         }
         set {
-                display.text = String(newValue)
+            display.text = String(newValue)
         }
     }
     

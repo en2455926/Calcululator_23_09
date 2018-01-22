@@ -10,7 +10,7 @@
 
 
 /*
-
+ 
  At sign (@) = Alt + 2
  Pipe sign (|) = Alt + 7
  Backslash (\) = Shift + Alt + 7
@@ -39,7 +39,7 @@ import Foundation
 
 /*
  func changeSign(operand: Double) -> Double {
-    return -operand }
+ return -operand }
  */
 
 struct CalculatorBrain {
@@ -48,6 +48,7 @@ struct CalculatorBrain {
     
     private enum Operation {
         case constant(Double)
+        case clear(Double)
         case unaryOperation((Double) -> Double)
         case binaryOperation((Double,Double) -> Double)
         case equals
@@ -55,6 +56,7 @@ struct CalculatorBrain {
     
     private var operations: Dictionary <String,Operation> = [
         "pii" : Operation.constant(Double.pi),
+        "C" : Operation.clear(0.0),
         "sqrt" : Operation.unaryOperation(sqrt),
         "cos" : Operation.unaryOperation(cos),
         "+/-" : Operation.unaryOperation({ -$0 }),
@@ -70,13 +72,15 @@ struct CalculatorBrain {
             switch operation {
             case .constant(let Value):
                 accumulator = Value
+            case .clear(let Value):
+                accumulator = Value
             case .unaryOperation(let function):
                 if accumulator != nil {
                     accumulator = function(accumulator!)
                 }
             case .binaryOperation(let function):
                 if accumulator != nil {
-                pendingBinaryOperation = PendingBinaryOperation(function: function, firstOperand: accumulator!)
+                    pendingBinaryOperation = PendingBinaryOperation(function: function, firstOperand: accumulator!)
                     accumulator = nil
                 }
                 break
