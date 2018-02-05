@@ -32,12 +32,23 @@ class Calcululator_23_09UITests: XCTestCase {
     let app = XCUIApplication()
 
     func testExample() {
-        app.buttons["7"].tap()
-        app.buttons["pii"].tap()
-        app.buttons["sqrt"].tap()
+        
+        let app = XCUIApplication()
+        app.buttons["1"].tap()
+        app.buttons["2"].tap()
+        app.buttons["3"].tap()
         app.buttons["4"].tap()
         app.buttons["5"].tap()
         app.buttons["6"].tap()
+        app.buttons["7"].tap()
+        app.buttons["8"].tap()
+        app.buttons["9"].tap()
+        
+        let button = app.buttons["+/-"]
+        button.tap()
+        button.tap()
+        app.buttons["C"].tap()
+
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
